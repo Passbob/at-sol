@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #countDown{
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            align-content: center;
+            border: 1px solid black;
+        }
+        #countText{
+            font-size: 40px;
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="settingArea">
+        <span id="btn1"><button>set 5</button></span>
+        <span id="btn2"><button>set 10</button></span>
+        <span id="btn3"><button>set 15</button></span>
+    </div>
+
+    <div id="countDown">
+        <span id="countText"></span>
+    </div>
+
+    <script>
+        const settingArea = document.getElementById('settingArea');
+        const countDown = document.getElementById('countDown');
+        let countText = document.getElementById('countText');
+        let time = 0;
+
+        
+        function start(sec){
+            time = sec;
+            setInterval(
+                function(){
+                    
+                    if(time == 0){
+                        alert('End');
+                        clearInterval(start());
+                        location.reload()
+                    }else{
+                    
+                    countText.innerText = time;
+                    time--;
+                    }
+                },1000)
+
+        }
+        document.getElementById('btn1').addEventListener('mouseup',start(5));
+
+        // document.getElementById('btn2').addEventListener('click', start(10));
+
+        // document.getElementById('btn3').addEventListener('click', start(15));
+
+    
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
